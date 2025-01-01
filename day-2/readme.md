@@ -62,8 +62,8 @@ Monitoring is the process of keeping an eye on these metrics over time to unders
 ### Prerequisites
 - Download and Install AWS Cli - Please Refer [this]("https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html") link.
 - Setup and configure AWS CLI using the `aws configure` command.
-- Install and configure eksctl using the steps mentioned [here]("https://eksctl.io/installation/").
-- Install and configure kubectl as mentioned [here]("https://kubernetes.io/docs/tasks/tools/").
+- Install and configure eksctl using the steps mentioned here - "https://eksctl.io/installation/".
+- Install and configure kubectl as mentioned here - "https://kubernetes.io/docs/tasks/tools/".
 
 
 ```bash
