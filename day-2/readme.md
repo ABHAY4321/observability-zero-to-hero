@@ -68,19 +68,19 @@ Monitoring is the process of keeping an eye on these metrics over time to unders
 
 ```bash
 eksctl create cluster --name=observability \
-                      --region=us-east-1 \
-                      --zones=us-east-1a,us-east-1b \
+                      --region=us-east-2 \
+                      --zones=us-east-2a,us-east-2b \
                       --without-nodegroup
 ```
 ```bash
 eksctl utils associate-iam-oidc-provider \
-    --region us-east-1 \
+    --region us-east-2 \
     --cluster observability \
     --approve
 ```
 ```bash
 eksctl create nodegroup --cluster=observability \
-                        --region=us-east-1 \
+                        --region=us-east-2 \
                         --name=observability-ng-private \
                         --node-type=t3.medium \
                         --nodes-min=2 \
@@ -147,5 +147,5 @@ kubectl delete ns monitoring
 ```
 - **Delete Cluster & everything else**:
 ```bash
-eksctl delete cluster --name observability --region=us-east-1
+eksctl delete cluster --name observability --region=us-east-2
 ```
