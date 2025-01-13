@@ -26,10 +26,19 @@
 
 ## 📝 Step-by-Step Setup
 
+### 0.5) Install IAM OIDC Driver
+```bash
+eksctl utils associate-iam-oidc-provider \
+    --region us-east-2 \
+    --cluster observability \
+    --approve
+```
+
 ### 1) Create IAM Role for Service Account
 ```bash
 eksctl create iamserviceaccount \
     --name ebs-csi-controller-sa \
+    --region us-east-2 \
     --namespace kube-system \
     --cluster observability \
     --role-name AmazonEKS_EBS_CSI_DriverRole \
@@ -50,6 +59,7 @@ ARN=$(aws iam get-role --role-name AmazonEKS_EBS_CSI_DriverRole --query 'Role.Ar
 ### 3) Deploy EBS CSI Driver
 ```bash
 eksctl create addon --cluster observability --name aws-ebs-csi-driver --version latest \
+    --region us-east-2 \
     --service-account-role-arn $ARN --force
 ```
 - Above command deploys the AWS EBS CSI driver as an addon to your Kubernetes cluster.
